@@ -1,11 +1,3 @@
-" .vimrc File
-" Maintained by: Jeffrey Way
-" jeffrey@jeffrey-way.com
-" http://net.tutsplus.com
-"
-
-"Forget compatibility with Vi. Who cares.
-set nocompatible
 
 "Enable filetypes
 filetype on
@@ -34,7 +26,7 @@ set hidden
 " colorscheme twilight
 
 "Set font type and size. Depends on the resolution. Larger screens, prefer h15
-set guifont=Monaco:h12
+
 
 "Tab stuff
 set tabstop=3
@@ -178,7 +170,9 @@ nmap <C-l> <C-w>l
 nmap ,nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 "Show hidden files in NerdTree
+
 let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
 
 "autopen NERDTree and focus cursor in new document
 autocmd VimEnter * NERDTree
@@ -208,13 +202,27 @@ iab Teh The
 "let g:acp_behaviorSnipmateLength = 1
 
 "Peep open
+if has("gui_running")
+  if has("gui_gtk2")
+     set guifont=Courier\ New\ 11
+  elseif has("gui_photon")
+     set guifont=Courier\ New:s11
+  elseif has("gui_kde")
+     set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
+  elseif has("x11")
+     set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+  else
+     set guifont=Courier_New:h11:cDEFAULT
+  endif
+endif
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
+  set guifont=Monaco:h12
   map <c-o> <Plug>PeepOpen
 end
 
+set t_Co=256
 color molokai                 " load a colorscheme
-
 set encoding=utf-8
 map <C-q> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
@@ -228,6 +236,9 @@ Bundle 'gmarik/vundle'
 " Bundle List {
 " SQL
 Bundle 'dbext.vim'
+" Font
+Bundle 'pluginfonts.vim'
+Bundle 'quickfonts.vim'
 " Colorschemes
 Bundle 'spf13/vim-colors'
 " PHP
