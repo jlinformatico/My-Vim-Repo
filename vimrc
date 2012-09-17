@@ -14,7 +14,7 @@ filetype indent on
 syntax on
 
 "Write the old file out when switching between files.
-set autowrite
+"set autowrite
 
 "Display current cursor position in lower right corner.
 set ruler
@@ -34,7 +34,7 @@ set hidden
 colorscheme twilight
 
 "Set font type and size. Depends on the resolution. Larger screens, prefer h15
-set guifont=Monaco:h18
+set guifont=Monaco:h12
 
 "Tab stuff
 set tabstop=3
@@ -196,13 +196,13 @@ iab Teh The
 " PERSONAL SETTINGS 
 " -------------------------"
 "Example for adding abbreviations - triggered by the spacebar.
-iabbrev mysite ftp://jeff-way.com@jeffrey-way.com/domains/
+" iabbrev mysite ftp://jeff-way.com@jeffrey-way.com/domains/
 
 "Shortcut for logging into my server
-nmap ,server :Nread ftp://jeff-way.com@jeffrey-way.com/domains/<cr>
+" nmap ,server :Nread ftp://jeff-way.com@jeffrey-way.com/domains/<cr>
 
 "Shortcut directly to my theme files on server
-nmap ,theme :Nread ftp://jeff-way.com@jeffrey-way.com/domains/jeffrey-way.com/html/wp-content/themes/magazineJW/<cr>
+" nmap ,theme :Nread ftp://jeff-way.com@jeffrey-way.com/domains/jeffrey-way.com/html/wp-content/themes/magazineJW/<cr>
 
 "For autocompletion of Snipmate plugin
 "let g:acp_behaviorSnipmateLength = 1
@@ -212,3 +212,45 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <c-o> <Plug>PeepOpen
 end
+
+let g:dbext_default_profile_OMICRON = 'type=PGSQL:user=MiUNE:dbname=MiUNE:host=192.168.1.10:port=5432'
+let g:dbext_default_profile_OMICRON_POSTGRES = 'type=PGSQL:user=postgres:dbname=postgres:host=192.168.1.10:port=5432'
+let g:dbext_default_profile_ADMINDB = 'type=PGSQL:user=MiUNE:dbname=MiUNE:host=192.168.14.200:port=5432'
+
+color molokai                 " load a colorscheme
+
+"let mapleader = '\'
+"colorscheme 256-jungle
+set encoding=utf-8
+map <C-q> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+
+" Install Bundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'dbext.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'spf13/vim-colors'
+" PHP
+Bundle 'spf13/PIV'
+" Bundle 'beyondwords/vim-twig'
+" Python
+Bundle 'klen/python-mode'
+Bundle 'python.vim'
+Bundle 'python_match.vim'
+Bundle 'pythoncomplete'
+" Javascript
+Bundle 'leshill/vim-json'
+Bundle 'groenewege/vim-less'
+Bundle 'taxilian/vim-web-indent'
+" HTML
+Bundle 'amirh/HTML-AutoCloseTag'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+" Git
+Bundle 'tpope/vim-fugitive'
+" Misc
+Bundle 'tpope/vim-markdown'
+Bundle 'spf13/vim-preview'
+Bundle 'tpope/vim-cucumber'
+Bundle 'Puppet-Syntax-Highlighting'
+" Gui
+Bundle 'Lokaltog/vim-powerline'
