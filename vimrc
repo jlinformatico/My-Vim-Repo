@@ -20,7 +20,7 @@ syntax on
 set ruler
 
 "Want a different map leader than \
-"set mapleader = ",";
+let mapleader = ','
 
 "Ever notice a slight lag after typing the leader key + command? This lowers
 "the timeout.
@@ -31,7 +31,7 @@ set hidden
 
 "Set the color scheme. Change this to your preference. 
 "Here's 100 to choose from: http://www.vim.org/scripts/script.php?script_id=625
-colorscheme twilight
+" colorscheme twilight
 
 "Set font type and size. Depends on the resolution. Larger screens, prefer h15
 set guifont=Monaco:h12
@@ -175,7 +175,7 @@ nmap <C-l> <C-w>l
 "NERDTREE PLUGIN SETTINGS
 "------------------------"
 "Shortcut for NERDTreeToggle
-nmap ,nt :NERDTreeToggle
+nmap ,nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=1
@@ -213,28 +213,29 @@ if has("gui_macvim")
   map <c-o> <Plug>PeepOpen
 end
 
-let g:dbext_default_profile_OMICRON = 'type=PGSQL:user=MiUNE:dbname=MiUNE:host=192.168.1.10:port=5432'
-let g:dbext_default_profile_OMICRON_POSTGRES = 'type=PGSQL:user=postgres:dbname=postgres:host=192.168.1.10:port=5432'
-let g:dbext_default_profile_ADMINDB = 'type=PGSQL:user=MiUNE:dbname=MiUNE:host=192.168.14.200:port=5432'
-
 color molokai                 " load a colorscheme
 
-"let mapleader = '\'
-"colorscheme 256-jungle
 set encoding=utf-8
 map <C-q> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
-" Install Bundle
+" Install Bundle {
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+" filetype off
+Bundle 'gmarik/vundle'
+" }
+
+" Bundle List {
+" SQL
 Bundle 'dbext.vim'
-Bundle 'scrooloose/nerdtree'
+" Colorschemes
 Bundle 'spf13/vim-colors'
 " PHP
 Bundle 'spf13/PIV'
 " Bundle 'beyondwords/vim-twig'
 " Python
-Bundle 'klen/python-mode'
+" Need to compile vim with +python 
+" Bundle 'klen/python-mode'
 Bundle 'python.vim'
 Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
@@ -252,5 +253,14 @@ Bundle 'tpope/vim-markdown'
 Bundle 'spf13/vim-preview'
 Bundle 'tpope/vim-cucumber'
 Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-pathogen.git'
 " Gui
 Bundle 'Lokaltog/vim-powerline'
+" }
+
+" Use local vimrc if available {
+    if filereadable(expand("~/.vimrc.local"))
+        source ~/.vimrc.local
+    endif
+" }
