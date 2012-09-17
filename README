@@ -1,6 +1,13 @@
- To install this on your own system, paste the following into the Terminal. 
+ Basados en el VimRC de JeffreyWay y El Ultimate Vim Configuration de spf13 
+ malestroms y mi persona nieldm forkeamos para realizar un nuevo vimrc
+ adaptado a nuestras necesidades
 
- git clone https://github.com/JeffreyWay/My-Vim-Repo ~/.vim
+To Install | Para Instalar
+ git clone https://github.com/nieldm/My-Vim-Repo ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 
- ...That's it. Let me know if you have any questions!
+and Then | y luego
+vim +BundleInstall! +BundleClean +q
+
+Done! | Listo!
+
