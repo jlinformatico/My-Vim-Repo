@@ -171,8 +171,8 @@ nmap ,nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 "Show hidden files in NerdTree
 
-let NERDTreeShowHidden=1
-let NERDTreeShowBookmarks=1
+"let NERDTreeShowHidden=1
+"let NERDTreeShowBookmarks=1
 
 "autopen NERDTree and focus cursor in new document
 autocmd VimEnter * NERDTree
@@ -267,7 +267,7 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-pathogen.git'
 " Gui
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 " }
 
 " Use local vimrc if available {
@@ -275,3 +275,6 @@ Bundle 'Lokaltog/vim-powerline'
         source ~/.vimrc.local
     endif
 " }
+"
+" Power lines
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
